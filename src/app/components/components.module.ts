@@ -1,15 +1,19 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { AngularMaterialModule } from "../angular-material.module";
 import { ComponentsComponent } from './components.component';
-import { ChatComponent } from './chat/chat.component';
+import { ComponentsRoutingModule } from './components-routing.module'
+import { AngularMaterialModule } from "../angular-material.module";
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
-  declarations: [ComponentsComponent, ChatComponent],
+  declarations: [ComponentsComponent],
   imports: [
     CommonModule,
-    AngularMaterialModule
+    FormsModule,
+    ReactiveFormsModule,
+    AngularMaterialModule,
+    ComponentsRoutingModule,
   ]
 })
 export class ComponentsModule { }

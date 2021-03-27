@@ -1,1 +1,39 @@
-<p>header works!</p>
+<mat-toolbar style="height: 55px;"> 
+<span  matTooltip="Doodleblue Chat" class="logoicontext pointor" [routerLink]="'/'" routerLinkActive="active">
+  <img class="logoicon img-header" style="width: 38%; height: 53%;" src="\assets\logo01.PNG" >
+  </span>
+<span class="spacer"></span>
+<ul>  
+  <li *ngIf="!IsAuthenticated">
+      <button mat-button [routerLink]="'/auth/login'" routerLinkActive="active" style="color: #f6851c;">LOGIN</button>
+  </li>    
+<li *ngIf="IsAuthenticated">
+  <div fxflex="0 1 auto" [matMenuTriggerFor]="profile" fxlayout="row" fxlayoutalign="start center" style="align-items: center;">
+    <button  mat-button="" style="padding: 9px; ">
+      <span class="mat-button-wrapper">
+        <div fxlayout="row" fxlayoutalign="center center" style="flex-direction: row; box-sizing: border-box; display: flex; place-content: center; align-items: center;">
+          <img src="/assets/logo01.PNG" class="avatar mr-0 mr-sm-16">
+          <span fxhide="" fxshow.gt-sm="" class="username mr-12">{{userData.name}}</span>
+          <mat-icon role="img" fxhide.xs="" class="mat-icon notranslate s-16 material-icons mat-icon-no-color" aria-hidden="true">keyboard_arrow_down</mat-icon></div>
+        </span>
+        <div matripple="" class="mat-ripple mat-button-ripple"></div>
+        <div class="mat-button-focus-overlay"></div>
+      </button>
+      </div>
+    <mat-menu #profile="matMenu">
+      <button mat-menu-item>
+      <mat-icon>account_circle</mat-icon>
+      <span>Profile</span>
+      </button> 
+      <button mat-menu-item>
+        <mat-icon>fingerprint</mat-icon>
+        <span>Change Password</span>
+      </button> 
+      <button mat-menu-item (click)="onLogout()" >
+        <mat-icon>exit_to_app</mat-icon>
+        <span>Logout</span> 
+      </button>
+   </mat-menu>
+    </li>
+</ul>
+</mat-toolbar>

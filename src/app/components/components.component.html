@@ -1,1 +1,54 @@
-<p>components works!</p>
+<mat-sidenav-container class="example-container">
+  <mat-sidenav  [fixedInViewport]="true" #sideNavTooggle  [fixedTopGap]="48" #sidenav mode="side" class="example-sidenav"  opened="true" (mouseenter)="increase()">
+    <div style="flex-direction: column; box-sizing: border-box; display: flex;"  *ngIf="sidenavWidth > 6" >
+      <a (click)="decrease()" class="close"></a> 
+    </div>
+    <div  *ngIf="sidenavWidth > 6" class="profile_nav" style="height: 130px; padding: 28px;">
+      <div style="flex-direction: column; box-sizing: border-box; display: flex;">
+        <div class="avatar-container fuse-navy-700">
+          <img src="/assets/logo01.PNG" class="avatar mr-0 mr-sm-16">
+          </div>
+        <div matTooltip="{{userData.name}}" class="h3 sidenav_text" style="font-size: 16px;">{{userData.name}}</div>
+        <div matTooltip="{{userData.email}}" class="h5 sidenav_text email hint-text mt-8"  style="font-size: 14px;">{{userData.email}}</div>
+       </div>
+    </div>
+   <mat-nav-list>
+     <mat-list-item matTooltip="Dashboard" (click)="decrease()"  [routerLink]="['dashboard']" routerLinkActive="mat-accent">
+       <mat-icon >dashboard</mat-icon>
+        <div fxFlex="10"></div>
+       <div *ngIf="sidenavWidth > 6" class="sidenav-item">
+         <span>Dashboard</span>
+       </div>
+     </mat-list-item> 
+     <div>
+      <mat-list-item matTooltip="Chats" (click)="decrease()" [routerLink]="['chat']">
+       <mat-icon md-list-icon>chat</mat-icon>
+       <div fxFlex="20"></div>
+       <div *ngIf="sidenavWidth > 6"  class="sidenav-item">
+         <span>Chat</span>
+       </div>
+     </mat-list-item>
+     <mat-list-item matTooltip="Profile Details" (click)="decrease()">
+      <mat-icon md-list-icon>person</mat-icon>
+      <div fxFlex="20"></div>
+      <div *ngIf="sidenavWidth > 6"  class="sidenav-item">
+        <span>My Info</span>
+      </div>
+    </mat-list-item>     
+    <mat-list-item matTooltip="Your Attachments"  (click)="decrease()">
+     <mat-icon md-list-icon>storage</mat-icon>
+     <div fxFlex="20"></div>
+     <div *ngIf="sidenavWidth > 6"  class="sidenav-item">
+       <span>Attachments</span>
+     </div>
+   </mat-list-item> 
+   </div>
+   <div> 
+</div>   
+   </mat-nav-list>
+ </mat-sidenav>
+      <mat-sidenav-content style="margin-left: 74px;">
+              <router-outlet></router-outlet>
+      </mat-sidenav-content> 
+ </mat-sidenav-container>
+ 

@@ -1,0 +1,25 @@
+<div class="spinner">
+   <mat-spinner [diameter]=40 *ngIf="isLoading"></mat-spinner>
+ </div> 
+<div style="width: 244px;">
+    <mat-card style="width: 100%;">
+        <div style="color: #9a9a9a;">
+          <div fxlayout="row" fxlayoutalign="space-between center" class="pl-16 pr-8 py-16 ng-tns-c231-87" style="flex-direction: row; box-sizing: border-box; display: flex; place-content: center space-between; align-items: center;">
+            <div>{{day}}</div>
+            <div>
+              <button aria-haspopup="true" mat-icon-button="" aria-label="more" class="mat-menu-trigger ng-tns-c231-87 mat-icon-button mat-button-base">
+                <span class="mat-button-wrapper">
+                  <mat-icon>more_vert</mat-icon></span>
+                </button> 
+                </div>
+              </div>
+                <div style="flex-direction: column; box-sizing: border-box; display: flex; place-content: center; align-items: center;">
+                  <div class="h1"><span>{{month}}</span></div>
+                  <div style="line-height: 82px; font-size: 72px;"> {{date}} </div>
+                  <div class="h1"><span>{{year}}</span></div>
+                </div>
+              </div>
+      </mat-card>
+     </div>  
+<br />
+<br />
