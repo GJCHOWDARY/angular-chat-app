@@ -7,6 +7,9 @@
   <li *ngIf="!IsAuthenticated">
       <button mat-button [routerLink]="'/auth/login'" routerLinkActive="active" style="color: #f6851c;">LOGIN</button>
   </li>    
+  <li *ngIf="!IsAuthenticated">
+      <button mat-button [routerLink]="'/auth/signup'" routerLinkActive="active" style="color: #f6851c;">SIGNUP</button>
+  </li>    
 <li *ngIf="IsAuthenticated">
   <div fxflex="0 1 auto" [matMenuTriggerFor]="profile" fxlayout="row" fxlayoutalign="start center" style="align-items: center;">
     <button  mat-button="" style="padding: 9px; ">

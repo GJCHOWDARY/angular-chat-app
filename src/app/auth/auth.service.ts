@@ -57,6 +57,13 @@ export class AuthService {
       )
   }
 
+  createUser(email: string, password: string, name: string) {
+    localStorage.clear();
+    const newUser: any = { email, password, name };
+    console.log(newUser,":00000000")
+    return this.http.post(BACKEND_URL + "/signup",newUser)
+  }
+
   saveLoginInfo(response: any) {
     const token = response.token;
     if (token) {

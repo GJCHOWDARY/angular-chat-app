@@ -1,1 +1,32 @@
-<p>signup works!</p>
+<div class="content" role="main"> 
+    <div class="card-container">
+    <form (submit)="onSignup(singupForm)"  #singupForm="ngForm">
+        <mat-form-field appearance="outline">                                          
+          <mat-label>UserName</mat-label>
+          <input matInput name="name" autocomplete="off" ngModel placeholder="Enter Your Email" #nameInput="ngModel" required>
+          <mat-icon matSuffix>user</mat-icon>         
+          <mat-error *ngIf="nameInput.hasError('required')">Please enter name.</mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline">                                          
+          <mat-label>Email</mat-label>
+          <input matInput name="email" autocomplete="off" ngModel type="email" placeholder="Enter Your Email" #emailInput="ngModel" required email>
+          <mat-icon matSuffix>email</mat-icon>         
+          <mat-error *ngIf="emailInput.hasError('required')">Please enter valid email.</mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline">                                         
+            <mat-label>Password</mat-label>
+            <input [type]="hide ? 'password' : 'text'" autocomplete="off" name="password" ngModel matInput placeholder="Enter Your Password" #passwordInput="ngModel" required>
+                <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            <mat-error *ngIf="passwordInput.hasError('required')">Please enter valid password.</mat-error>
+          </mat-form-field> 
+          <div>
+              <a [routerLink]="'/auth/forgot'">Forgot Password?</a>
+           </div><br  />
+           <div>
+        <mat-card-actions align="end">
+          <button class="login-btn" style="width: 100%;" mat-raised-button color="primary" type="submit">Signup</button>
+        </mat-card-actions> 
+    </div>
+  </form>
+ </div>
+</div>
