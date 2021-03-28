@@ -44,7 +44,6 @@ export class ChatPopupComponent implements OnInit {
           // console.log("socket.io message received in pop-up!!")
           this.messages.push(msg);
           errorField.scrollIntoView();
-          // this.openDialog(msg.receiverId, msg);
         });
     }
     this.authService.getUserDetails(this.data.receiverId).subscribe((res: any) => {
@@ -61,7 +60,6 @@ export class ChatPopupComponent implements OnInit {
     }
     this.chatService.sendMessage(chat).subscribe((response: any) => {
       this.message = ""
-      // console.log(response)
     })
   }
 

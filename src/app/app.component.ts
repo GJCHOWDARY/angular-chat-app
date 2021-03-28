@@ -20,6 +20,7 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
+    console.log("%cSTOP!","color:red;font-size:xx-large;font-weight:bold;", "This is a browser feature intended for developers.");
     this.IsAuthenticated = this.authService.getIsAuth();
     this.userData = this.authService.getUserData();
     this.authListenerSubs = this.authService.getAuthStatusListener()

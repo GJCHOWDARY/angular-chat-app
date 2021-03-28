@@ -3,7 +3,7 @@
     <form (submit)="onSignup(singupForm)"  #singupForm="ngForm">
         <mat-form-field appearance="outline">                                          
           <mat-label>UserName</mat-label>
-          <input matInput name="name" autocomplete="off" ngModel placeholder="Enter Your Email" #nameInput="ngModel" required>
+          <input matInput name="name" autocomplete="off" ngModel placeholder="Enter Your Name" #nameInput="ngModel" required>
           <mat-icon matSuffix>user</mat-icon>         
           <mat-error *ngIf="nameInput.hasError('required')">Please enter name.</mat-error>
         </mat-form-field>
