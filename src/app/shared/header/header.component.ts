@@ -40,7 +40,7 @@ export class HeaderComponent implements OnInit {
 
 
   getUserDetails() {
-    this.authService.getUserDetails().subscribe((res: any) => {
+    this.authService.getUserDetails(this.userData.userId).subscribe((res: any) => {
       this.userDetails = res.user;
     },
       error => {

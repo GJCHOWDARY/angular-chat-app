@@ -136,6 +136,17 @@ height: 45px;
     /* min-height: 574px; */
   }
 
+  .container { 
+    margin-top: 95px;
+    height: auto;
+    /* min-height: 574px; */
+  }
+
+  .top_nav { 
+    margin-top: 60px;
+    /* min-height: 574px; */
+  }
+
   .card {
     border-radius: 4px;
     border: 1px solid #eee;

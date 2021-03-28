@@ -22,7 +22,7 @@ export class ComponentsComponent implements OnInit {
   brogressBar = false;
   private userId: string = '';
   private authListenerSubs= new Subscription();
-  
+
   constructor(
     private authService: AuthService,
   ) { }
@@ -44,7 +44,7 @@ export class ComponentsComponent implements OnInit {
   }
 
   getUserDetails() {
-    this.authService.getUserDetails().subscribe((res: any) => {
+    this.authService.getUserDetails(this.userData.userId).subscribe((res: any) => {
       this.userDetails = res.user;
     },
       error => {

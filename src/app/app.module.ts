@@ -11,11 +11,17 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { AuthInterceptor } from "./auth/auth-interceptor";
 import { ErrorInterceptor } from "./error-interceptor";
+import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
+import { environment } from "../environments/environment";
 
- 
+const SOCKET_IO_URL = environment.socket_io_Url
+
+const config: SocketIoConfig = { url: SOCKET_IO_URL, options: { transport : ['websocket', 'polling', 'flashsocket'] } };
+
 @NgModule({
   imports: [
     BrowserModule,
+    SocketIoModule.forRoot(config),
     FormsModule,
     ReactiveFormsModule,
     AngularMaterialModule,

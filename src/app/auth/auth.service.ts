@@ -4,7 +4,6 @@ import { Router } from "@angular/router";
 import { Subject } from "rxjs";
 import { environment } from "../../environments/environment";
 import { AuthData } from "./auth-data.model";
-import { MatSnackBar, MatSnackBarConfig, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition } from '@angular/material/snack-bar';
 const BACKEND_URL = environment.apiUrl + "/auth";
 const BACKEND_USER_URL = environment.apiUrl + "/user";
 
@@ -19,12 +18,9 @@ export class AuthService {
   private userId: string = '';
   private authStatusListener = new Subject<boolean>();
 
-  horizontalPos: MatSnackBarHorizontalPosition = 'right';
-  verticalPos: MatSnackBarVerticalPosition = 'top';
-
   constructor(
-    private http: HttpClient, private router: Router,
-    private _snackBar: MatSnackBar,
+    private http: HttpClient, 
+    private router: Router, 
   ) { }
 
   getToken() {
@@ -165,15 +161,15 @@ export class AuthService {
     };
   }
 
-  getUserDetails() {
-    return this.http.get(BACKEND_USER_URL + `/get_user_detials/` + this.userId)
+  getUserDetails(userId: string) {
+    return this.http.get(BACKEND_USER_URL + `/get_user_detials/` + userId)
   }
 
-  openSnakBar() {
-    let config = new MatSnackBarConfig();
-    config.verticalPosition = this.verticalPos;
-    config.horizontalPosition = this.horizontalPos;
-    config.duration = 8000;
-    this._snackBar.open(this.sankBardata.message, 'Ok', config);
+  getUsers(search: string) {
+    var queryParams = `?`;
+    if(search){
+      queryParams+=`search=${search}`
+    }
+    return this.http.get(BACKEND_USER_URL + `/get_users`+queryParams)
   }
 }
