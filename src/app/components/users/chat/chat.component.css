@@ -7,10 +7,13 @@ mat-card {
 table {
   width: 100%;
 }
-.btn.focus,
-.btn:focus {
+.btn.focus,.btn:focus {
   outline: 0;
   box-shadow: 0 0 0 0.2rem rgb(255, 255, 255);
+}
+
+mat-icon {
+  color: #f39b45;
 }
 
 .btn-success:not(:disabled):not(.disabled).active,
@@ -74,6 +77,16 @@ mat-paginator {
   background-size: cover;
 }
 
+.img-circle {
+  padding: 7px;
+  background-color: #fdfdfd;
+  width: 33px;
+  font-weight: 800;
+  height: 33px;
+  border-radius: 14px;
+  text-align: center;
+}
+
 .avatar {
   width: 30px;
   min-width: 30px;
@@ -87,11 +100,11 @@ mat-paginator {
 }
 
 .example-viewport {
-    height: 200px;
-    width: 200px;
-    border: 1px solid black;
-  }
-  
-  .example-item {
-    height: 50px;
-  }
+  height: 200px;
+  width: 200px;
+  border: 1px solid black;
+}
+
+.example-item {
+  height: 50px;
+}

@@ -5,9 +5,10 @@ import { ChatComponent } from './chat/chat.component';
 import { ChatRoutingModule } from './chat-routing.module'
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ChatPopupComponent } from './chat-popup/chat-popup.component';
 
 @NgModule({
-  declarations: [ChatComponent,DashboardComponent],
+  declarations: [ChatComponent,DashboardComponent, ChatPopupComponent],
   imports: [
     CommonModule,
     FormsModule,

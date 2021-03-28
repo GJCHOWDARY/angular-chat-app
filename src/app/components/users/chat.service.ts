@@ -15,19 +15,16 @@ export class ChatService {
         private http: HttpClient,
     ) { }
 
+    getMessages(receiverId: string) {
+        return this.http.get(BACKEND_CHAT_URL + `/${receiverId}`);
+    }
+
     connect() {
         this.socket.connect();
     }
 
-    sendMessage(msg: any) {
-        const msg1={
-            "message":"Test!!",
-            "receiverId": "605e4c96dc2e14b76a93c885"
-        }
-        return this.http.post(BACKEND_CHAT_URL + "/send_message", msg1)
-            .subscribe((response: any) => {
-                console.log(response)
-            })
+    sendMessage(chatMessage: any) { 
+        return this.http.post(BACKEND_CHAT_URL + "/send_message", chatMessage);
         //  this.socket.emit("message", msg);
     }
 

@@ -16,7 +16,7 @@ export class HeaderComponent implements OnInit {
   selectedFiles: any;
   sidenavWidth = 4;
   private toggelListener = new Subject<boolean>();
-  private authListenerSubs= new Subscription();
+  private authListenerSubs = new Subscription();
 
   constructor(
     private authService: AuthService,
@@ -37,7 +37,6 @@ export class HeaderComponent implements OnInit {
         }
       });
   }
-
 
   getUserDetails() {
     this.authService.getUserDetails(this.userData.userId).subscribe((res: any) => {

@@ -13,7 +13,10 @@ export class LoginComponent implements OnInit {
   hide: boolean = true;
   isAuthenticated: boolean = false;
   isDisabled: boolean = false;
-  constructor(public authService: AuthService, private router: Router,) { }
+  constructor(
+    public authService: AuthService, 
+    private router: Router,
+    ) { }
 
   ngOnInit(): void {
     this.isAuthenticated = this.authService.getIsAuth();

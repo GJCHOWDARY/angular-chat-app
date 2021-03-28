@@ -25,6 +25,7 @@ export class DashboardComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.isLoading = false;
     this.userData = this.authService.getUserData();
   }
 
@@ -37,10 +38,4 @@ export class DashboardComponent implements OnInit {
     console.log(n, num + " minutes = " + rhours + " hour(s) and " + rminutes + " minute(s).");
     return `${rhours}:${rminutes}`
   }
-
-  onSubmit(f: NgForm) {
-    console.log(f.value);  // { first: '', last: '' }
-    console.log(f.valid);
-  }
-
 }

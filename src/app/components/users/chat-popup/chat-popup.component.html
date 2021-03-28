@@ -1,0 +1,57 @@
+<div  mat-dialog-title>
+  <div class="row">
+     <div class="col-md-8">
+        <h2>Chat Messages <span *ngIf="userInfo">({{userInfo.name}})</span></h2>
+     </div>
+     <div class="col-md-4">
+        <span class="img-circle" *ngIf="userInfo">{{formateName(userInfo.name)}}</span>
+     </div>
+  </div>
+</div>
+<div class="spinner">
+  <mat-spinner [diameter]=20 *ngIf="isLoading"></mat-spinner>
+</div>
+<mat-dialog-content class="mat-typography">
+  <div style="text-align: center;" *ngIf="messages.length<=0">
+     <p>No Messages Found!</p>
+  </div>
+  <div *ngFor="let msg of messages">
+     <div class="row msj macro" *ngIf="data.senderId!==msg.senderId && msg.senderId===msg.createdBy">
+        <div class="text text-l">
+           <!-- <span class="img-circle">You</span> -->
+           <p>{{msg.message}}</p>
+           <p><small>{{msg.createdAt|date:'mediumDate'}} at {{msg.createdAt|date:'shortTime'}}</small></p>
+        </div>
+     </div>
+     <div class="row msj-rta macro" *ngIf="data.receiverId===msg.receiverId && msg.receiverId!==msg.createdBy">
+        <div class="text text-r">
+           <!-- <span> <p class=" img-circle"  matTooltip="{{msg.name}}" style="float: right;padding: 5px;">Me</p></span> -->
+           <p>{{msg.message}}</p>
+           <p>
+              <small>{{msg.createdAt|date:'mediumDate'}} at {{msg.createdAt|date:'shortTime'}}</small>
+           </p>
+        </div>
+     </div>
+  </div>
+  <span class="content-message"></span>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <form (submit)="sendMessage(messageForm)" #messageForm="ngForm">
+  <mat-form-field appearance="outline">
+     <mat-label>Your Message</mat-label>
+     <textarea 
+     cdkTextareaAutosize
+     #autosize="cdkTextareaAutosize"
+     cdkAutosizeMinRows="1"
+     cdkAutosizeMaxRows="4"
+     matInput 
+     [(ngModel)]="message" placeholder="Write Comment Here ..." #messageInput="ngModel" 
+     name="message" type="text" placeholder="Write Your Message Here ..." required></textarea>
+     <button class="comment_btn" [disabled]="isLoading||messageForm.invalid" mat-stroked-button color="primary">
+        <mat-icon matTooltip="Save Your Comment"  type="submit"  matSuffix>send</mat-icon>
+     </button>
+     <!-- <mat-icon  matSuffix>message</mat-icon> -->
+     <mat-error *ngIf="messageInput.hasError('required')">Write Your Message...</mat-error>
+  </mat-form-field>
+  </form>
+</mat-dialog-actions>
